@@ -13,8 +13,8 @@ defmodule Game do
       feedback: ""
     ]
   
-    def start_link() do
-      GenServer.start_link(__MODULE__, [Secret.new()])
+    def start_link(name \\ Game) do
+      GenServer.start_link(__MODULE__, [Secret.new()], name: name)
     end
   
     def init([secret]) do
